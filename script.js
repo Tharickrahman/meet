@@ -142,3 +142,146 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+// Set the date/time for the next meeting
+// Set the date/time for the next meeting (used only if countdown elements exist)
+const meetingDate = new Date("2025-12-05T15:00:00").getTime();
+
+// Only run the global countdown updater if the countdown elements exist on the page
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+
+if (daysEl && hoursEl && minutesEl && secondsEl) {
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = meetingDate - now;
+
+    if (distance < 0) {
+      daysEl.textContent = "0";
+      hoursEl.textContent = "0";
+      minutesEl.textContent = "0";
+      secondsEl.textContent = "0";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysEl.textContent = days;
+    hoursEl.textContent = hours;
+    minutesEl.textContent = minutes;
+    secondsEl.textContent = seconds;
+  }
+
+  // Update countdown every second
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // initial call
+}
+// Scheduler variables and behavior: only initialize if the scheduler elements exist
+const meetingDateInput = document.getElementById('meetingDate');
+const slotBtns = document.querySelectorAll('.slot-btn');
+const selectedDateTimeSpan = document.getElementById('selectedDateTime');
+const confirmBtn = document.getElementById('confirmBtn');
+
+if (meetingDateInput && selectedDateTimeSpan && confirmBtn && slotBtns.length > 0) {
+  let selectedDate = null;
+  let selectedTime = null;
+  let countdownInterval = null;
+
+  // Update display function
+  function updateDisplay() {
+    if (selectedDate && selectedTime) {
+      selectedDateTimeSpan.textContent = `${selectedDate} at ${selectedTime}`;
+      // start a countdown for the selected meeting only if countdown elements exist
+      if (daysEl && hoursEl && minutesEl && secondsEl) {
+        startCountdown(new Date(`${selectedDate} ${selectedTime}`));
+      }
+    } else if (selectedDate) {
+      selectedDateTimeSpan.textContent = `${selectedDate}`;
+    } else if (selectedTime) {
+      selectedDateTimeSpan.textContent = `${selectedTime}`;
+    } else {
+      selectedDateTimeSpan.textContent = 'None';
+    }
+  }
+
+  // Countdown function (works only if countdown elements exist)
+  function startCountdown(meetingDateTime) {
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    function updateCountdownForSelection() {
+      const now = new Date().getTime();
+      const distance = meetingDateTime.getTime() - now;
+
+      if (distance < 0) {
+        daysEl.textContent = "0";
+        hoursEl.textContent = "0";
+        minutesEl.textContent = "0";
+        secondsEl.textContent = "0";
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    updateCountdownForSelection(); // initial call
+    countdownInterval = setInterval(updateCountdownForSelection, 1000);
+  }
+
+  // Event listeners
+  meetingDateInput.addEventListener('change', () => {
+    selectedDate = meetingDateInput.value;
+    updateDisplay();
+  });
+
+  slotBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      slotBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedTime = btn.dataset.time;
+      updateDisplay();
+    });
+  });
+
+  confirmBtn.addEventListener('click', () => {
+    if (!selectedDate || !selectedTime) {
+      alert('Please select both a date and a time slot!');
+      return;
+    }
+    alert(`Meeting booked on ${selectedDate} at ${selectedTime}`);
+  });
+
+}
+//sectioon of abotut page with no doubt we can use to change this as a image and a yaru da nee nan than da kadavul enna vella yaar iruk
+const statNumbers = document.querySelectorAll('.stat-number');
+
+statNumbers.forEach(el => {
+  const target = +el.getAttribute('data-target');
+  let count = 0;
+  const step = target / 200; // duration steps
+
+  const update = () => {
+    count += step;
+    if(count < target){
+      el.textContent = Math.floor(count);
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target.toLocaleString();
+    }
+  };
+
+  update();
+});

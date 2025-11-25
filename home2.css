@@ -236,3 +236,595 @@ body {
         font-size: 14px;
     }
 }
+/* ---------------- Home2 Section A ---------------- */
+
+.hero2 {
+  padding: 100px 22px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  color: #ffffff;
+}
+
+/* Text Styling */
+.hero2 h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.hero2 p {
+  font-size: 15.5px;
+  opacity: 0.9;
+  margin-bottom: 22px;
+}
+
+/* Buttons */
+.hero2-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-primary2,
+.btn-outline2 {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+/* Solid button */
+.btn-primary2 {
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.btn-primary2:hover {
+  background: #7dd3fc;
+}
+
+/* Outline button */
+.btn-outline2 {
+  border: 1.6px solid #94a3b8;
+  color: #e2e8f0;
+}
+
+.btn-outline2:hover {
+  border-color: #cbd5e1;
+  color: #ffffff;
+}
+
+/* Desktop (bigger heading) */
+@media (min-width: 1024px) {
+  .hero2 h1 { font-size: 45px; }
+  .hero2 p { font-size: 18px; }
+  .hero2 { min-height: 100vh; padding: 140px 22px; }
+}
+/* ---------------- Home2 Section 2 ------------------ */
+.h2-features {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f7f9fc;
+}
+
+.h2-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.h2-subtitle {
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  font-size: 16px;
+}
+
+/* Grid */
+.h2-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.h2-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.h2-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.h2-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.h2-card h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.h2-card p {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 768px) {
+  .h2-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .h2-title {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .h2-features {
+    padding: 80px 40px;
+  }
+  .h2-card {
+    padding: 32px 26px;
+  }
+}
+.features-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9fafb;
+}
+
+.sec-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.sec-sub {
+  color: #6b7280;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: .25s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.feature-card .icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------------- Home2 Section 3 ------------------ */
+/* ---------- Live Stats Section ---------- */
+.stats-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9fafb;
+  color: #111827;
+}
+
+.stats-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stats-sub {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+.stats-grid {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* ---------- Responsive Layout ---------- */
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.countdown-section {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.countdown-section h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.countdown-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.85);
+}
+
+.countdown-timer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.time-box {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.time-box span {
+  font-size: 48px;
+  font-weight: 700;
+  display: block;
+}
+
+.time-box p {
+  margin-top: 5px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+}
+
+/* Desktop layout */
+@media(min-width: 768px) {
+  .countdown-timer {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.scheduler-section {
+  padding: 50px 20px;
+  text-align: center;
+  background: #eef2ff;
+  color: #1f2937;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.slot-btn {
+  padding: 10px 20px;
+  border: 2px solid #4f46e5;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.slot-btn:hover,
+.slot-btn.selected {
+  background: #4f46e5;
+  color: white;
+}
+
+#confirmBtn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* ---------------- Footer ---------------- */
+
+.site-footer {
+    background: #0f172a; /* Dark navy logistics theme */
+    color: #e2e8f0;
+    padding: 60px 20px 30px;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* -------------------------
+   BRAND + ABOUT SECTION
+------------------------- */
+.footer-brand {
+    flex: 1.6;
+    min-width: 280px;
+}
+
+.footer-logo {
+    width: 160px;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+/* -------------------------
+   EMAIL SUBSCRIBE
+------------------------- */
+.footer-subscribe {
+    margin-top: 20px;
+}
+
+.subscribe-label {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscribe-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.subscribe-button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.subscribe-button:hover {
+    background: #1d4ed8;
+}
+
+.subscribe-hint {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* -------------------------
+   FOOTER LINKS
+------------------------- */
+.footer-columns {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+/* -------------------------
+   FOOTER BOTTOM
+------------------------- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 40px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;   /* Stack items */
+    align-items: center;      /* Center horizontally */
+    justify-content: center;  
+    text-align: center;       /* Center text */
+    gap: 12px;
+   
+}
+
+.footer-bottom-left p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+     justify-content: center;
+}
+
+.footer-legal a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-legal a:hover {
+    color: #fff;
+}
+
+/* -------------------------
+   SOCIAL ICONS
+------------------------- */
+.social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #2563eb;
+}
+
+/* -------------------------
+   RESPONSIVE STYLES
+------------------------- */
+@media (max-width: 900px) {
+    .footer-inner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-columns {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .subscribe-form {
+        flex-direction: column;
+    }
+
+    .subscribe-button {
+        width: 100%;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -32,7 +32,7 @@
                     <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="dash.html" class="nav-link">Services</a>
+                    <a href="service.html" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
                     <a href="dash.html" class="nav-link">Dashboard</a>
@@ -54,7 +54,138 @@
             </div>
         </div>
     </nav>
+    <section id="dashboard" class="dashboard-section">
+        <h2>Dashboard</h2>
+        <p>Track your meetings and platform activity in real-time</p>
 
+        <div class="dashboard-controls">
+            <button class="dashboard-tab active" data-range="day">Day</button>
+            <button class="dashboard-tab" data-range="week">Week</button>
+            <button class="dashboard-tab" data-range="month">Month</button>
+        </div>
+
+        <canvas id="activityChart"></canvas>
+
+        <div class="stats-cards">
+            <div class="stat-card">
+                <h3 id="totalMeetings">0</h3>
+                <p>Total Meetings</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="activeUsers">0</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="connectedOrgs">0</h3>
+                <p>Organizations Connected</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardTabs = document.querySelectorAll('.dashboard-tab');
+            const totalMeetingsEl = document.getElementById('totalMeetings');
+            const activeUsersEl = document.getElementById('activeUsers');
+            const connectedOrgsEl = document.getElementById('connectedOrgs');
+            const ctx = document.getElementById('activityChart').getContext('2d');
+
+            const dashboardData = {
+                day: { labels: ['6am', '9am', '12pm', '3pm', '6pm', '9pm'], meetings: [10, 15, 20, 18, 25, 22], users: [50, 70, 80, 60, 90, 75], orgs: [5, 7, 9, 8, 10, 8] },
+                week: { labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], meetings: [120, 150, 130, 170, 180, 140, 110], users: [500, 620, 580, 700, 690, 500, 400], orgs: [40, 45, 42, 50, 48, 38, 35] },
+                month: { labels: ['W1', 'W2', 'W3', 'W4'], meetings: [500, 600, 550, 650], users: [2000, 2200, 2100, 2300], orgs: [150, 160, 155, 170] }
+            };
+
+            let chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dashboardData.day.labels,
+                    datasets: [
+                        { label: 'Meetings', data: dashboardData.day.meetings, borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,0.2)', tension: 0.4 },
+                        { label: 'Active Users', data: dashboardData.day.users, borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.2)', tension: 0.4 },
+                        { label: 'Organizations', data: dashboardData.day.orgs, borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,0.2)', tension: 0.4 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            function updateDashboard(range) {
+                const data = dashboardData[range];
+                chart.data.labels = data.labels;
+                chart.data.datasets[0].data = data.meetings;
+                chart.data.datasets[1].data = data.users;
+                chart.data.datasets[2].data = data.orgs;
+                chart.update();
+
+                totalMeetingsEl.textContent = data.meetings.reduce((a, b) => a + b, 0);
+                activeUsersEl.textContent = data.users.reduce((a, b) => a + b, 0);
+                connectedOrgsEl.textContent = data.orgs.reduce((a, b) => a + b, 0);
+            }
+
+            dashboardTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    dashboardTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    updateDashboard(tab.dataset.range);
+                });
+            });
+
+            updateDashboard('day');
+        });
+    </script>
+    <section id="metrics" class="section metrics">
+        <h2>Live Metrics</h2>
+        <p class="lead">Track the activity happening across our platform in real-time</p>
+
+        <div class="metrics-grid">
+            <div class="metric">
+                <h3 class="metric-number">1,520</h3>
+                <p>Total Active Users</p>
+            </div>
+
+            <div class="metric">
+                <h3 class="metric-number">87,500</h3>
+                <p>Total Meetings Hosted</p>
+            </div>
+
+            <div class="metric">
+                <h3 class="metric-number">320</h3>
+                <p>Organizations Connected</p>
+            </div>
+
+            <div class="metric">
+                <h3 class="metric-number">98</h3>
+                <p>Countries Reached</p>
+            </div>
+        </div>
+    </section>
+    <section id="scheduler" class="scheduler-section">
+        <h2>Schedule Your Meeting</h2>
+
+        <p>Select a date:</p>
+        <input type="date" id="meetingDate">
+
+        <p>Select a time slot:</p>
+        <div class="slots">
+            <button class="slot-btn" data-time="09:00 AM">09:00 AM</button>
+            <button class="slot-btn" data-time="11:00 AM">11:00 AM</button>
+            <button class="slot-btn" data-time="01:00 PM">01:00 PM</button>
+            <button class="slot-btn" data-time="03:00 PM">03:00 PM</button>
+        </div>
+
+        <p>Selected: <span id="selectedDateTime">None</span></p>
+        <button id="confirmBtn">Confirm</button>
+
+
+    </section>
+    
     <script src="script.js"></script>
 </body>
+
 </html>

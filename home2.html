@@ -32,7 +32,7 @@
                     <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="dash.html" class="nav-link">Services</a>
+                    <a href="service.html" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
                     <a href="dash.html" class="nav-link">Dashboard</a>
@@ -54,7 +54,279 @@
             </div>
         </div>
     </nav>
+    <section id="home2-hero" class="hero2">
+        <div class="hero2-content">
+            <h1>Welcome to IT Meeting Hub</h1>
+            <p>Your smart place for tech events, meetings & collaborations.</p>
+
+            <div class="hero2-buttons">
+                <a href="#" class="btn-primary2">Get Started</a>
+                <a href="#" class="btn-outline2">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <section id="home2-section2" class="h2-features">
+        <div class="h2-container">
+
+            <h2 class="h2-title">Why Choose IT Meeting?</h2>
+            <p class="h2-subtitle">
+                We simplify networking, communication, and collaboration for your team.
+            </p>
+
+            <div class="h2-grid">
+
+                <div class="h2-card">
+                    <div class="h2-icon">💡</div>
+                    <h3>Smart Collaboration</h3>
+                    <p>Bring your team together with real-time updates, shared tools, and streamlined coordination.</p>
+                </div>
+
+                <div class="h2-card">
+                    <div class="h2-icon">⚡</div>
+                    <h3>Fast & Reliable</h3>
+                    <p>Experience super-fast performance with optimized workloads and instant communication channels.
+                    </p>
+                </div>
+
+                <div class="h2-card">
+                    <div class="h2-icon">🔒</div>
+                    <h3>Secure by Design</h3>
+                    <p>All your meetings, data, and routes are protected with enterprise-level security protocols.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="home2-section3" class="features-section">
+        <div class="container">
+            <h2 class="sec-title">Why Our IT Meeting Platform Stands Out</h2>
+            <p class="sec-sub">Fast, reliable, and built to empower your IT community.</p>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="icon">💼</div>
+                    <h3>Professional Sessions</h3>
+                    <p>Expert-led discussions with structured content for developers, tech heads, and students.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Instant Updates</h3>
+                    <p>Get real-time alerts, meeting changes, and upcoming event notifications instantly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🔒</div>
+                    <h3>Secure Platform</h3>
+                    <p>All your data, sessions, and user accounts are protected with advanced security.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="live-stats" class="stats-section">
+        <h2 class="stats-title">Live Network Stats</h2>
+        <p class="stats-sub">Real-time activity happening across our platform</p>
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
+                <span class="stat-number" data-target="1520">0</span>
+                <p class="stat-label">Active Users</p>
+            </div>
+
+            <div class="stat-box">
+                <span class="stat-number" data-target="87500">0</span>
+                <p class="stat-label">Total Meetings Hosted</p>
+            </div>
+
+            <div class="stat-box">
+                <span class="stat-number" data-target="320">0</span>
+                <p class="stat-label">Organizations Connected</p>
+            </div>
+
+            <div class="stat-box">
+                <span class="stat-number" data-target="98">0</span>
+                <p class="stat-label">Countries Reached</p>
+            </div>
+
+        </div>
+    </section>
+    <script>
+const counters = document.querySelectorAll('.stat-number');
+
+const animateCounters = () => {
+  counters.forEach(counter => {
+    let target = +counter.getAttribute('data-target');
+    let current = 0;
+    let speed = target / 100;
+
+    const updateCount = () => {
+      if (current < target) {
+        current += speed;
+        counter.innerText = Math.floor(current);
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+  });
+};
+
+// Trigger animation when section is visible
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    animateCounters();
+    observer.disconnect();
+  }
+}, { threshold: 0.4 });
+
+observer.observe(document.querySelector('#live-stats'));
+</script>
+<section id="countdown" class="countdown-section">
+  <div class="countdown-content">
+    <h2>Next Big Meeting</h2>
+    <p>Get ready! The meeting starts soon.</p>
+
+    <div class="countdown-timer">
+      <div class="time-box">
+        <span id="days">0</span>
+        <p>Days</p>
+      </div>
+      <div class="time-box">
+        <span id="hours">0</span>
+        <p>Hours</p>
+      </div>
+      <div class="time-box">
+        <span id="minutes">0</span>
+        <p>Minutes</p>
+      </div>
+      <div class="time-box">
+        <span id="seconds">0</span>
+        <p>Seconds</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="scheduler" class="scheduler-section">
+  <h2>Schedule Your Meeting</h2>
+  
+  <p>Select a date:</p>
+  <input type="date" id="meetingDate">
+
+  <p>Select a time slot:</p>
+  <div class="slots">
+    <button class="slot-btn" data-time="09:00 AM">09:00 AM</button>
+    <button class="slot-btn" data-time="11:00 AM">11:00 AM</button>
+    <button class="slot-btn" data-time="01:00 PM">01:00 PM</button>
+    <button class="slot-btn" data-time="03:00 PM">03:00 PM</button>
+  </div>
+
+  <p>Selected: <span id="selectedDateTime">None</span></p>
+  <button id="confirmBtn">Confirm</button>
+
+  
+</section>
+  <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="assets/logo-removebg-preview.png" alt="Transport Logo" class="footer-logo">
+                </a>
+                <p class="footer-text">
+                    At IT Meeting, we believe every great idea begins with a conversation. Our platform is designed to
+                    gather professionals, students, and industry experts in one unified space. Through interactive
+                    sessions, collaborative tools, and a smooth event experience, we help you turn simple discussions
+                    into impactful outcomes.
+                </p>
+                <div class="footer-subscribe">
+                    <p class="subscribe-label">Stay ahead of every meeting</p>
+                    <form class="subscribe-form" onsubmit="return checkEmail(event)">
+                        <input id="emailInput" type="email" placeholder="Enter your email address"
+                            class="subscribe-input">
+                        <button type="submit" class="subscribe-button">Subscribe</button>
+                    </form>
+
+                    <script>
+                        function checkEmail(event) {
+                            const email = document.getElementById("emailInput").value;
+
+                            if (email.trim() === "") {
+                                alert("Please enter your email.");
+                                return false; // stop form submission
+                            }
+
+                            // if email is filled → go to 404.html
+                            window.location.href = "404.html";
+                            return false; // prevent default form submit
+                        }
+                    </script>
+                    <p class="subscribe-hint">No unnecessary emails. Receive only important schedules, session
+                        reminders, and technical<br> briefings straight to your inbox.</p>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service.html">Event &amp; Managen</a></li>
+                        <li><a href="service.html">IT solution</a></li>
+                        <li><a href="service.html">Technical &amp; Support</a></li>
+                        <li><a href="service.html">Digital Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Services</a></li>
+                        <li><a href="login.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Community Forum</a></li>
+                        <li><a href="404.html">FAQs</a></li>
+                        <li><a href="404.html">Help center</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>© 2025 Transport Network. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404.html">Privacy</a>
+                    <span>•</span>
+                    <a href="404.html">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom-right">
+                <div class="social-icons">
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="social-icon">
+                    </a>
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="social-icon">
+                    </a>
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="social-icon">
+                    </a>
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

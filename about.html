@@ -32,10 +32,10 @@
                     <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="dash.html" class="nav-link">Services</a>
+                    <a href="service.html" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="track.html" class="nav-link">Dashboard</a>
+                    <a href="dash.html" class="nav-link">Dashboard</a>
                 </li>
 
                 <li class="nav-item">
@@ -54,6 +54,211 @@
             </div>
         </div>
     </nav>
+<section class="about-hero">
+  <div class="hero-content">
+    <h1>About IT Meeting</h1>
+    <p>Our mission is to make scheduling and managing meetings seamless for every organization.</p>
+  </div>
+</section>
+
+<!-- OUR STORY / TIMELINE -->
+<section class="our-story">
+  <h2>Our Journey</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="year">2022</span>
+      <p>IT Meeting was founded with a vision to simplify digital collaboration.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year">2023</span>
+      <p>Reached 10,000 active users and launched our advanced dashboard.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="year">2024</span>
+      <p>Integrated real-time notifications and calendar sync for all users.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VALUES -->
+<section class="mission-values">
+  <h2>Our Mission & Values</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <i class="fas fa-bullseye"></i>
+      <h3>Focus</h3>
+      <p>We help teams focus on what matters most.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-users"></i>
+      <h3>Collaboration</h3>
+      <p>Connecting teams with seamless collaboration tools.</p>
+    </div>
+    <div class="value-card">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Security</h3>
+      <p>Your data is safe with enterprise-grade security.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM SNAPSHOT -->
+<section class="team-snapshot">
+  <h2>Meet Our Leaders</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="assets/human3.webp" alt="Asha Kumar" class="team-avatar">
+      <div class="team-meta">
+        <strong>Asha Kumar</strong>
+        <span>Head Organizer</span>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="assets/human2.jpg" alt="Ravi Patel" class="team-avatar">
+      <div class="team-meta">
+        <strong>Ravi Patel</strong>
+        <span>Tech Lead</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="about-cta">
+  <h2>Ready to get started?</h2>
+  <p>Schedule your first IT Meeting today and experience seamless collaboration.</p>
+  <a href="contact.html" class="btn-primary">Contact Us</a>
+</section>
+
+<!-- TESTIMONIALS & STATS SECTION -->
+<section id="testimonials-stats" class="testimonials-stats">
+  <h2>What Our Users Say</h2>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <p>"IT Meeting has completely streamlined our team coordination. Highly recommended!"</p>
+      <strong>- Jane Doe, CTO, TechCorp</strong>
+    </div>
+    <div class="testimonial-card">
+      <p>"Scheduling meetings has never been easier. The dashboard is amazing!"</p>
+      <strong>- John Smith, Project Manager, Innovate Inc.</strong>
+    </div>
+  </div>
+
+  <h2>Our Impact</h2>
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="stat-number" data-target="1520">0</span>
+      <p>Active Users</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="87500">0</span>
+      <p>Meetings Hosted</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="320">0</span>
+      <p>Organizations Connected</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="98">0</span>
+      <p>Countries Reached</p>
+    </div>
+  </div>
+</section>
+   <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="assets/logo-removebg-preview.png" alt="Transport Logo" class="footer-logo">
+                </a>
+                <p class="footer-text">
+                    At IT Meeting, we believe every great idea begins with a conversation. Our platform is designed to
+                    gather professionals, students, and industry experts in one unified space. Through interactive
+                    sessions, collaborative tools, and a smooth event experience, we help you turn simple discussions
+                    into impactful outcomes.
+                </p>
+                <div class="footer-subscribe">
+                    <p class="subscribe-label">Stay ahead of every meeting</p>
+                    <form class="subscribe-form" onsubmit="return checkEmail(event)">
+                        <input id="emailInput" type="email" placeholder="Enter your email address"
+                            class="subscribe-input">
+                        <button type="submit" class="subscribe-button">Subscribe</button>
+                    </form>
+
+                    <script>
+                        function checkEmail(event) {
+                            const email = document.getElementById("emailInput").value;
+
+                            if (email.trim() === "") {
+                                alert("Please enter your email.");
+                                return false; // stop form submission
+                            }
+
+                            // if email is filled → go to 404.html
+                            window.location.href = "404.html";
+                            return false; // prevent default form submit
+                        }
+                    </script>
+                    <p class="subscribe-hint">No unnecessary emails. Receive only important schedules, session
+                        reminders, and technical<br> briefings straight to your inbox.</p>
+                </div>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="service.html">Event &amp; Managen</a></li>
+                        <li><a href="service.html">IT solution</a></li>
+                        <li><a href="service.html">Technical &amp; Support</a></li>
+                        <li><a href="service.html">Digital Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Services</a></li>
+                        <li><a href="login.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html">Community Forum</a></li>
+                        <li><a href="404.html">FAQs</a></li>
+                        <li><a href="404.html">Help center</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">
+                <p>© 2025 Transport Network. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="404.html">Privacy</a>
+                    <span>•</span>
+                    <a href="404.html">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom-right">
+                <div class="social-icons">
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="social-icon">
+                    </a>
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="social-icon">
+                    </a>
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="social-icon">
+                    </a>
+                    <a href="404.html" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
