@@ -18,7 +18,7 @@ body {
   position: fixed;
   top: 20px;
   left: 20px;
-  color: #ffb74d;
+  color: #f99704;
   text-decoration: none;
   font-size: 1rem;
   z-index: 100;
@@ -91,7 +91,7 @@ body {
 
 /* Title */
 .login-title {
-  color: #ffb74d;
+  color: #ff9b06;
   font-size: 2rem;
   margin-bottom: 30px;
 }
@@ -116,7 +116,7 @@ body {
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #ffb74d;
+  background-color: #fb9905;
   border: none;
   border-radius: 10px;
   font-weight: bold;
@@ -127,7 +127,7 @@ body {
 }
 
 .login-btn:hover {
-  background-color: #ffc870;
+  background-color: #c57d0a;
   transform: scale(1.05);
 }
 
